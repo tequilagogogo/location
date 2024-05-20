@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Travel Experiences Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body { margin: 0; padding: 0; }
+    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+  </style>
+</head>
+<body>
+  <div id='map'></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map').setView([30, 10], 2);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    var locations = [
+      // China
+      { name: '乌鲁木齐', coordinates: [43.8256, 87.617] },
+      { name: '吐鲁番', coordinates: [42.9513, 89.1841] },
+      { name: '福州', coordinates: [26.1008, 119.2965] },
+      { name: '厦门', coordinates: [24.4798, 118.0895] },
+      { name: '泉州', coordinates: [24.8741, 118.6757] },
+      { name: '杭州', coordinates: [30.2741, 120.1551] },
+      { name: '嘉兴', coordinates: [30.7500, 120.7500] },
+      { name: '湖州', coordinates: [30.8998, 120.0880] },
+      { name: '舟山', coordinates: [29.9856, 122.2072] },
+      { name: '乌镇', coordinates: [30.8727, 120.4970] },
+      { name: '上海', coordinates: [31.2304, 121.4737] },
+      { name: '南京', coordinates: [32.0603, 118.7969] },
+      { name: '苏州', coordinates: [31.2990, 120.5853] },
+      { name: '武汉', coordinates: [30.5931, 114.3054] },
+      { name: '长沙', coordinates: [28.2135, 113.2663] },
+      { name: '广州', coordinates: [23.1291, 113.2644] },
+      { name: '东莞', coordinates: [23.0430, 113.7633] },
+      { name: '南宁', coordinates: [22.8170, 108.3661] },
+      { name: '北海', coordinates: [21.4733, 109.1191] },
+      { name: '兰州', coordinates: [36.0611, 103.8343] },
+      { name: '张掖', coordinates: [38.9327, 100.4555] },
+      { name: '银川', coordinates: [38.5026, 106.2065] },
+      { name: '青藏高原', coordinates: [30.6667, 90.4000] },
+      { name: '腾格里沙漠', coordinates: [38.0000, 105.0000] },
+      { name: '贵阳', coordinates: [26.6476, 106.6302] },
+      { name: '黔东南', coordinates: [26.5823, 107.9719] },
+      { name: '西安', coordinates: [34.3416, 108.9398] },
+      { name: '洛阳', coordinates: [34.6197, 112.4540] },
+      { name: '安阳', coordinates: [36.0975, 114.3924] },
+      { name: '重庆', coordinates: [29.5630, 106.5516] },
+      { name: '成都', coordinates: [30.5728, 104.0665] },
+      { name: '川西地区', coordinates: [30.9417, 101.7152] },
+      { name: '北京', coordinates: [39.9042, 116.4074] },
+      { name: '哈尔滨', coordinates: [45.8038, 126.5350] },
+      { name: '雨崩', coordinates: [28.3538, 99.9867] },
+      { name: '丽江', coordinates: [26.8753, 100.2296] },
+      { name: '大理', coordinates: [25.6065, 100.2676] },
+      { name: '香格里拉', coordinates: [27.8333, 99.7000] },
+      { name: '泰安', coordinates: [36.2000, 117.0876] },
+      { name: '青岛', coordinates: [36.0671, 120.3826] },
+      { name: '天津', coordinates: [39.0833, 117.2000] },
+      { name: '大同', coordinates: [40.0764, 113.2968] },
+      { name: '应县', coordinates: [39.5542, 113.2083] },
+      // Other countries
+      { name: '巴黎', coordinates: [48.8566, 2.3522] },
+      { name: '斯特拉斯堡', coordinates: [48.5734, 7.7521] },
+      { name: '图宾根', coordinates: [48.3705, 9.9900] },
+      { name: '柏林', coordinates: [52.5200, 13.4050] },
+      { name: '维也纳', coordinates: [48.2082, 16.3738] },
+      { name: '布达佩斯', coordinates: [47.4979, 19.0402] },
+      { name: '布鲁塞尔', coordinates: [50.8503, 4.3517] },
+      { name: '斯洛伐克', coordinates: [48.1486, 19.5033] },
+      { name: '阿姆斯特丹', coordinates: [52.3779, 4.8970] },
+      { name: '鹿特丹', coordinates: [51.9244, 4.4777] },
+      { name: '德瑞边界区域', coordinates: [6.1863, 47.0483] },
+      { name: '加德满都', coordinates: [27.7172, 85.3240] },
+      { name: '巴德岗', coordinates: [28.2617, 83.9807] },
+      { name: '博卡拉', coordinates: [28.2036, 83.7718] },
+      { name: 'ABC', coordinates: [28.5700, 83.8400] }
+    ];
+
+    locations.forEach(function(location) {
+      L.marker(location.coordinates).addTo(map)
+        .bindPopup('<b>' + location.name + '</b>');
+    });
+  </script>
+</body>
+</html>
+
